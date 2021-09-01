@@ -6,7 +6,9 @@
   * @param {string} string - исходная строка
   * @returns {string} - сжатая строка
   */
-const rleRegExp = (string) => (typeof string != 'string') ? ''
+const rleRegExp = (string) =>
+    (typeof string != 'string')
+    ? ''
     :string.replace(/(.)\1+/g, (series, char) => (char + series.length));
 
 /**
@@ -20,13 +22,13 @@ const rle = (string) => {
         return '';
     }
     let compressed = '';
-    let rep_count = 0;
+    let repCount = 0;
     for (let i = 0; i < string.length; ++i) {
-        if (string[i] == string[i+1]) {
-            rep_count++;
+        if (string[i] === string[i+1]) {
+            repCount++;
         } else {
-            compressed += string[i] + (rep_count > 0 ? rep_count + 1 : '');
-            rep_count = 0;
+            compressed += string[i] + (repCount > 0 ? repCount + 1 : '');
+            repCount = 0;
         }
     }
     return compressed;
