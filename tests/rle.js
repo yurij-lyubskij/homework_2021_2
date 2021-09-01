@@ -15,8 +15,28 @@ QUnit.module('Тестируем функцию rle', function () {
 		assert.strictEqual(rle('AB'), 'AB');
 	});
 	
-	QUnit.test('rle работает, когда на входе есть числа', function (assert) {
+	QUnit.test('rle работает, когда в строке есть числа', function (assert) {
 		assert.strictEqual(rle('BABB333'), 'BAB233');
+	});
+	
+	QUnit.test('rle работает, когда на входе undefined', function (assert) {
+		assert.strictEqual(rle(undefined), '');
+	});
+	
+	QUnit.test('rle работает, когда на входе null', function (assert) {
+		assert.strictEqual(rle(null), '');
+	});
+	
+	QUnit.test('rle работает, когда на входе число', function (assert) {
+		assert.strictEqual(rle(1), '');
+	});
+	
+	QUnit.test('rle работает, когда на входе массив', function (assert) {
+		assert.strictEqual(rle([1, 2, 3]), '');
+	});
+	
+	QUnit.test('rle работает, когда на входе объект', function (assert) {
+		assert.strictEqual(rle({key: 1}), '');
 	});
 });
 
