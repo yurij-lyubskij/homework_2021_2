@@ -39,3 +39,4 @@ QUnit.module('Тестируем функцию rle', function () {
 		assert.strictEqual(rle({key: 1}), '');
 	});
 });
+
