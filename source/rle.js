@@ -1,14 +1,20 @@
 'use strict';
 	
 /**
-  * Сжимаем строку
+  * Сжимаем строку по алгоритму rle с использованием регулярных выражений
   * 
   * @param {string} string - исходная строка
-  * @returns {string}
+  * @returns {string} - сжатая строка
   */
 const rleRegExp = (string) => (typeof string != 'string') ? ''
     :string.replace(/(.)\1+/g, (series, char) => (char + series.length));
 
+/**
+  * Сжимаем строку по алгоритму rle
+  * 
+  * @param {string} string - исходная строка
+  * @returns {string} - сжатая строка
+  */
 const rle = (string) => {
     if (typeof string != 'string') {
         return '';
