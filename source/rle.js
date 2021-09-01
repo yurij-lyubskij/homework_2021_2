@@ -7,9 +7,9 @@
   * @returns {string} - сжатая строка
   */
 const rleRegExp = (string) =>
-    (typeof string != 'string')
-    ? ''
-    :string.replace(/(.)\1+/g, (series, char) => (char + series.length));
+    (typeof string !== 'string')
+        ? ''
+        : string.replace(/(.)\1+/g, (series, char) => (char + series.length));
 
 /**
   * Сжимаем строку по алгоритму rle
@@ -18,7 +18,7 @@ const rleRegExp = (string) =>
   * @returns {string} - сжатая строка
   */
 const rle = (string) => {
-    if (typeof string != 'string') {
+    if (typeof string !== 'string') {
         return '';
     }
     let compressed = '';
