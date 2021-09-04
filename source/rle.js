@@ -22,11 +22,11 @@ const rle = (inputStr) => {
     }
     const inputArr = inputStr.split('');
     let repCount = 0;
-    return inputArr.reduce((compressed, _, i, Str) => {
-        if (Str[i] === Str[i+1]) {
+    return inputArr.reduce((compressed, _, i, Arr) => {
+        if (Arr[i] === Arr[i+1]) {
             repCount++;
         } else {
-            compressed += Str[i] + (repCount > 0 ? repCount + 1 : '');
+            compressed += Arr[i] + (repCount > 0 ? repCount + 1 : '');
             repCount = 0;
         }
         return compressed;
