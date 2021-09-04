@@ -20,7 +20,7 @@ const rle = (inputStr) => {
     if (typeof inputStr !== 'string') {
         return new TypeError('inputStr is not string');
     }
-    let inputArr = inputStr.split('');
+    const inputArr = inputStr.split('');
     let repCount = 0;
     return inputArr.reduce((compressed, _, i, Str) => {
         if (Str[i] === Str[i+1]) {
