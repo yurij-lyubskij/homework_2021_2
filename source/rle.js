@@ -2,31 +2,31 @@
 /**
   * Сжимаем строку по алгоритму rle с использованием регулярных выражений
   * 
-  * @param {string} string - исходная строка
-  * @returns {string} - сжатая строка
+  * @param {string} inputStr - исходная строка
+  * @returns {string|TypeError} - сжатая строка или объект ошибки при неправильном типе аргумента
   */
-const rleRegExp = (string) =>
-    (typeof string !== 'string')
-        ? ''
-        : string.replace(/(.)\1+/g, (series, char) => (char + series.length));
+const rleRegExp = (inputStr) =>
+    (typeof inputStr !== 'string')
+        ? new TypeError('inputStr is not string')
+        : inputStr.replace(/(.)\1+/g, (series, char) => (char + series.length));
 
 /**
   * Сжимаем строку по алгоритму rle
   * 
-  * @param {string} string - исходная строка
-  * @returns {string} - сжатая строка
+  * @param {string} inputStr - исходная строка
+  * @returns {string|TypeError} - сжатая строка или объект ошибки при неправильном типе аргумента
   */
-const rle = (string) => {
-    if (typeof string !== 'string') {
-        return '';
+const rle = (inputStr) => {
+    if (typeof inputStr !== 'string') {
+        return new TypeError('inputStr is not string');
     }
     let compressed = '';
     let repCount = 0;
-    for (let i = 0; i < string.length; ++i) {
-        if (string[i] === string[i+1]) {
+    for (let i = 0; i < inputStr.length; ++i) {
+        if (inputStr[i] === inputStr[i+1]) {
             repCount++;
         } else {
-            compressed += string[i] + (repCount > 0 ? repCount + 1 : '');
+            compressed += inputStr[i] + (repCount > 0 ? repCount + 1 : '');
             repCount = 0;
         }
     }

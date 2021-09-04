@@ -20,23 +20,23 @@ QUnit.module('Тестируем функцию rle', function () {
 	});
 	
 	QUnit.test('rle работает, когда на входе undefined', function (assert) {
-		assert.strictEqual(rle(undefined), '');
+		assert.throws(rle(undefined));
 	});
 	
 	QUnit.test('rle работает, когда на входе null', function (assert) {
-		assert.strictEqual(rle(null), '');
+		assert.throws(rle(null));
 	});
 	
 	QUnit.test('rle работает, когда на входе число', function (assert) {
-		assert.strictEqual(rle(1), '');
+		assert.throws(rle(1));
 	});
 	
 	QUnit.test('rle работает, когда на входе массив', function (assert) {
-		assert.strictEqual(rle([1, 2, 3]), '');
+		assert.throws(rle([1, 2, 3]));
 	});
 	
 	QUnit.test('rle работает, когда на входе объект', function (assert) {
-		assert.strictEqual(rle({key: 1}), '');
+		assert.throws(rle({key: 1}));
 	});
 });
 
